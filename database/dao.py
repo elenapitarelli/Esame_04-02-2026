@@ -17,3 +17,21 @@ class DAO:
         cursor.close()
         conn.close()
         return result
+
+    @staticmethod
+    def get_authorship():
+        conn = DBConnect.get_connection()
+        result = []
+        cursor = conn.cursor()
+        query = """ SELECT *
+                    """
+        cursor.execute(query)
+
+        for row in cursor:
+            result.append(row)
+
+        cursor.close()
+        conn.close()
+        return result
+
+
